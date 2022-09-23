@@ -1,599 +1,1044 @@
-<!doctype html>
-<html lang="en">
+     <!doctype html>
+     <html lang="en">
+     <head>
+     <meta charset="utf-8">
+     <title>Hotspot Model</title>
+     <script src="libs/dat.gui.min.js"></script>
+	 <script src="https://use.fontawesome.com/releases/v6.2.0/js/all.js" crossorigin="anonymous"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>ARK-BIM</title>
+	 <link href="assets/css/pagestyle.css" rel="stylesheet">
+	 <link href="assets/css/dat-gui-light-style.css" rel="stylesheet"/>
+	 <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+     <style>
+	 
 	
-	<link href="fcf-assets/css/fcf.default.css" rel="stylesheet">
 	
-    <link href="fcf-assets/css/fcf.default-custom.css" rel="stylesheet">
-
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
-
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="assets/css/LineIcons.css">
-
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-
-    <link rel="stylesheet" href="assets/css/slick.css">
-
-    <link rel="stylesheet" href="assets/css/animate.css">
-
-    <link rel="stylesheet" href="assets/css/default.css">
-
-    <link rel="stylesheet" href="assets/css/style.css">
 	
-	<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+	.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 22px;
+}
 
-</head>
+.switch input {
+  display: none;
+}
 
-<body>
+.slider-1 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
 
+.slider-1:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
 
-    <div class="preloader">
-        <div class="loader">
-            <div class="ytp-spinner">
-                <div class="ytp-spinner-container">
-                    <div class="ytp-spinner-rotator">
-                        <div class="ytp-spinner-left">
-                            <div class="ytp-spinner-circle"></div>
-                        </div>
-                        <div class="ytp-spinner-right">
-                            <div class="ytp-spinner-circle"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+input:checked+.slider-1 {
+  background-color: #2196F3;
+}
 
+input:focus+.slider-1 {
+  box-shadow: 0 0 1px #2196F3;
+}
 
-
-    <section class="header-area">
-        <div class="navbar-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="#">
-                                <img src="assets/images/logo.png" alt="Logo">
-                            </a>
-
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                            </button>
-
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item active">
-                                        <a class="page-scroll" href="#home">HOME</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#info">Info</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#features">features</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#codes">Codes</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#contact">CONTACT</a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </nav> 
-                    </div>
-                </div> 
-            </div> 
-        </div> 
-        
-        <div id="home" class="slider-area">
-            <div class="bd-example">
-                <div id="carouselOne" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselOne" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselOne" data-slide-to="1"></li>
-                        <li data-target="#carouselOne" data-slide-to="2"></li>
-                    </ol>
-
-                    <div class="carousel-inner">
-                        <div class="carousel-item bg_cover active" style="background-image: url(assets/images/slider-1.jpg)">
-                            <div class="carousel-caption">
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-xl-6 col-lg-7 col-sm-10">
-										    <h2 style="color:white; font-size: 38px">Cloud HBIM for Archaeology</h2> &nbsp
-                                            <h2 style="color:#e5e5e5; font-size: 25px">designed for stratigraphic contexts</h2>
-                                        </div>
-                                    </div> 
-                                </div> 
-                            </div> 
-                        </div> 
-
-                        <div class="carousel-item bg_cover" style="background-image: url(assets/images/slider-2.jpg)">
-                            <div class="carousel-caption">
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-xl-6 col-lg-7 col-sm-10">
-										 <h2 style="color:white; font-size: 38px">Cloud HBIM for Archaeology</h2> &nbsp
-                                         <h2 style="color:#e5e5e5; font-size: 25px">based on JavaScript, HTML, VueJS, XEOKIT</h2>
-                                        </div>
-                                    </div> 
-                                </div> 
-                            </div> 
-                        </div> 
-                        <div class="carousel-item bg_cover" style="background-image: url(assets/images/slider-3.jpg)">
-                            <div class="carousel-caption">
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-xl-6 col-lg-7 col-sm-10">
-											<h2 style="color:white; font-size: 38px">Cloud HBIM for Archaeology</h2> &nbsp
-                                            <h2 style="color:#e5e5e5; font-size: 25px">designed with ad-hoc plugins</h2>
-                                        </div>
-                                    </div> 
-                                </div> 
-                            </div> 
-                        </div> 
-                    </div> 
-                </div> 
-            </div> 
-        </div>
-
-    </section>
-
-    <section id="info" class="about-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-8">
-                    <div class="section-title text-center mt-30 pb-40">
-                        <h4 class="title wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">What is ARK-BIM?</h4>
-                        <p style="font-size: 16px; text-align: justify" class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">
-						ARK-BIM is a modular web HBIM platform for Archaeology. It was developed on the basis of <a href="https://bimdata.io" style="font-size: 16px">BIMData</a> and <a href="https://xeolabs.com/" style="font-size: 16px">XEOKIT</a>. 
-						Then the plugin implementation was designed via via JavaScript, VueJS, XEOKIT and HTML.
-						</p>
-                    </div> 
-                </div>
-            </div> 
-            
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="single-about d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                        <div class="about-icon">
-                            <span style="color: #8299c9"> <i class="fas fa-code fa-3x"></i> </span>
-                        </div>
-                        <div class="about-content media-body">
-                            <h4 class="about-title">Open Source</h4>   
-                            <p style="font-size: 14px; text-align: justify" class="text">ARK-BIM is based on powerfull BIMData (BIMData.io) and XEOKIT (xeolabs.com) open source codes. Thanks to FOSS development tools via JavaScript, VueJS, XEOKIT and HTML a custom viewer and platform can be created including ad-hoc plugins.</p>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-lg-6">
-                    <div class="single-about d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.4s">
-                        <div class="about-icon">
-						<span style="color: #df8176"> <i class="fas fa-university fa-3x"></i> </span>
-                        </div>
-                        <div class="about-content media-body">
-                            <h4 class="about-title"> For Archaeology</h4>
-                            <p style="font-size: 14px; text-align: justify" class="text">ARK-BIM was designed for managing HBIM projects related to Archaeology and Heritage assets. Actual web and client BIM platform have been designed for Architecture, Engineering & Construction, and they rarely can be adapted to historical peculiarities.</p>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-lg-6">
-                    <div class="single-about d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.6s">
-                        <div class="about-icon">
-                            <span style="color: #8dbfb1"> <i class="fas fa-puzzle-piece fa-3x"></i> </span>
-                        </div>
-                        <div class="about-content media-body">
-                            <h4 class="about-title">Ad-hoc features</h4>
-                            <p style="font-size: 14px; text-align: justify" class="text">In addition to all BIMData features, ARK-BIM includes plugins like: isolate elements; hotspot model; stratigraphic unit annotation; measurements center, 2D-3D switch and other important functionalities designed for Archaeology and Cultural Heritage.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="single-about d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.8s">
-                        <div class="about-icon">
-                            <span style="color: #d8ba81"> <i class="fas fa-sync fa-3x"></i> </span>
-                        </div>
-                        <div class="about-content media-body">
-                            <h4 class="about-title">Constantly Updated</h4>
-                            <p style="font-size: 14px; text-align: justify" class="text">ARK-BIM is a set of ad-hoc plugins inside the main viewer. The developed functionalities could be suitable for many archaeological sites but not for other contexts. For this reason, ARK-BIM features will be constantly implemented depending on case studies. </p>
-                        </div>
-                    </div> 
-                </div>
-            </div> 
-        </div> 
-    </section>
-	
-					</div> 
-					    <div class="section-title text-center pb-10"> 
-						&nbsp;
-						<p style="font-size: 16px">ARK-BIM requires a BIMData account for hosting IFC models, then through access and project tokens you can use your models. More info on
-                        <a href="https://bimdata.io" style="font-size: 16px">BIMData.io</a>
-						</p> &nbsp
-                    </div> 
-                    <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-three" href="schema/index.html">ARK-BIM FRAMEWORK</a>
-                    </div>
-  
+input:checked+.slider-1:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
 
 
-    <section id="features" class="portfolio-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section-title text-center pb-20">
-                        <h3 class="title">Features</h3>
-                        <p style="text-align: justify" class="text">ARK-BIM includes default BIMData features. Moreover it has been implemented with plugins and features usefull for Heritage assets. </p>
-                    </div> 
-                </div>
-            </div> 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="portfolio-menu pt-30 text-center">
-                        <ul>
-                            <li data-filter="*" class="active">ALL</li>
-                            <li data-filter=".branding-3">VueJS plugins</li>
-                            <li data-filter=".marketing-3">XEOKIT plugins</li>
-                        </ul>
-                    </div> 
-                </div>
-            </div> 
-            <div class="row grid">
-                <div class="col-lg-4 col-sm-6 branding-3">
-                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                        <div class="portfolio-image">
-                            <img src="assets/images/portfolio-1.png" alt="">
-                            <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                                <div class="portfolio-content">
-                                    <div class="portfolio-icon">
-                                        <a class="image-popup" href="assets/images/portfolio-1.png"><i class="lni-zoom-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-text">
-                            <h4 class="portfolio-title"><a>References plugin</a></h4>
-                            <p class="text">Popup informative modals, usefull for textual descriptions or other resources.</p>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-lg-4 col-sm-6 branding-3">
-                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                        <div class="portfolio-image">
-                            <img src="assets/images/portfolio-2.png" alt="">
-                            <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                                <div class="portfolio-content">
-                                    <div class="portfolio-icon">
-                                        <a class="image-popup" href="assets/images/portfolio-2.png"><i class="lni-zoom-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-text">
-                            <h4 class="portfolio-title"><a>Isolate Elements</a></h4>
-                            <p class="text">Usefull plugin in order to isolate desired elements based on IFC classification.</p>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-lg-4 col-sm-6 branding-3">
-                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
-                        <div class="portfolio-image">
-                            <img src="assets/images/portfolio-3.png" alt="">
-                            <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                                <div class="portfolio-content">
-                                    <div class="portfolio-icon">
-                                        <a class="image-popup" href="assets/images/portfolio-3.png"><i class="lni-zoom-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-text">
-                            <h4 class="portfolio-title"><a>Pick Stratigraphic Units</a></h4>
-                            <p class="text">Real-time pick and annotate stratigraphic units directly on the model.</p>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-lg-4 col-sm-6 marketing-3">
-                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                        <div class="portfolio-image">
-                            <img src="assets/images/portfolio-4.png" alt="">
-                            <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                                <div class="portfolio-content">
-                                    <div class="portfolio-icon">
-                                        <a class="image-popup" href="assets/images/portfolio-4.png"><i class="lni-zoom-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-text">
-                            <h4 class="portfolio-title"><a>Hotspot models</a></h4>
-                            <p class="text">Simple measurements tools in order to extract distances from the model. </p>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-lg-4 col-sm-6 marketing-3">
-                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                        <div class="portfolio-image">
-                            <img src="assets/images/portfolio-5.png" alt="">
-                            <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                                <div class="portfolio-content">
-                                    <div class="portfolio-icon">
-                                        <a class="image-popup" href="assets/images/portfolio-5.png"><i class="lni-zoom-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-text">
-                            <h4 class="portfolio-title"><a>Measurements center</a></h4>
-                            <p class="text">Pick and measure distances (x, y, z projections) directly on the model</p>
-                        </div>
-                    </div> 
-                </div>
-				<div class="col-lg-4 col-sm-6">
-                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                        <div class="portfolio-image">
-                            <img src="assets/images/portfolio-6.png" alt="">
-                            <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                                <div class="portfolio-content">
-                                    <div class="portfolio-icon">
-                                        <a class="image-popup" href="assets/images/portfolio-6.png"><i class="lni-zoom-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-text">
-                            <h4 class="portfolio-title"><a>Edit properties</a></h4>
-                            <p class="text">Default BIMData feature of 0.8.26 viewer version: realtime modification of properties</p>
-                        </div>
-                    </div> 
-                </div>
-            </div> 
-        </div> 
-	    
-	    &nbsp
-		</div> 
-		 <div class="section-title text-center pb-10"> 
-		&nbsp
-		<p style="font-size: 20px">See ARK-BIM 1.5.1 in action!
-		</p> &nbsp
-         </div> 
-        <div class="pricing-btn rounded-buttons text-center">
-        <a class="main-btn rounded-three" href="https://ark-bim.github.io/version1.5.1-sample/">Sample model</a>
-        </div>
-	    
-    </section>
-	
-                        <p style="font-size: 16px; text-align: center" class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">
-						More information here: <a href="https://bimdata.io" style="font-size: 16px">BIMData</a> and <a href="https://xeolabs.com/" style="font-size: 16px">XEOKIT</a>. 
-						</p>
-						
-						&nbsp
+/* Rounded sliders */
 
+.slider-1.round {
+  border-radius: 34px;
+}
 
-    <section id="codes" class="pricing-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section-title text-center pb-20">
-                        <h3 class="title">Source Codes</h3>
-                        <p class="text">ARK-BIM codes are free to be shared and implemented! Download and craft your personal and modular platform! Source Codes here!</p>
-                    </div> 
-                </div>
-            </div> 
-            <div class="row justify-content-center">                
-                <div class="col-lg-4 col-md-7 col-sm-9">
-                    <div class="pricing-style-one mt-40 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                        <div class="pricing-icon text-center">
-                            <img src="assets/images/wman.svg" alt="">
-                        </div>
-                        <div class="pricing-header text-center">
-                            <h5 class="sub-title"> ARK-BIM Viewer interface</h5>
-                        </div>
-                        <div class="pricing-list">
-                        </div>
-                        <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-three" href="/viewer_code/index.html">Explore</a>
-                        </div>
-                    </div> 
-                </div>
-                
-                <div class="col-lg-4 col-md-7 col-sm-9">
-                    <div class="pricing-style-one mt-40 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.5s">
-                        <div class="pricing-icon text-center">
-                            <img src="assets/images/wman.svg" alt="">
-                        </div>
-                        <div class="pricing-header text-center">
-                            <h5 class="sub-title"> ARK-BIM VueJS plugins</h5>
-                        </div>
-                        <div class="pricing-list">
-                        </div>
-                        <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-three" href="/plugins codes/vuejs codes.html">explore</a>
-                        </div>
-                    </div> 
-                </div>
-                
-                <div class="col-lg-4 col-md-7 col-sm-9">
-                    <div class="pricing-style-one mt-40 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.8s">
-                        <div class="pricing-icon text-center">
-                            <img src="assets/images/wman.svg" alt="">
-                        </div>
-                        <div class="pricing-header text-center">
-                            <h5 class="sub-title">ARK-BIM XEOKIT plugins</h5>
-                        </div>
-                        <div class="pricing-list">
-                        </div>
-                        <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-three" href="/plugins codes/xeokit codes.html">explore</a>
-                        </div>
-                    </div> 
-                </div>
-            </div> 
-					</div> 
-					    <div class="section-title text-center pb-10"> 
-						&nbsp;
-						<p>BIMData 0.8.26 JavaScript main viewer
-                        <a href="https://unpkg.com/@bimdata/viewer@0.8.26/dist/bimdata-viewer.min.js" style="font-size: 15px"> Download here</a>
-						<a> or</a>
-						<a href="https://drive.google.com/uc?export=view&id=1PTrPaD4UBWfMy76rQTu2ipkl7CDdGuiN" style="font-size: 15px"> here</a>
-						</p>
-                    </div> 
-        </div> 
-    </section>
-
- 	<p style="text-align: center"class="text">Designed by - Inspired by</p>
-    <section id="client" class="client-logo-area">
-        <div class="container">
-            <div class="row client-active">
-                <div class="col-lg-3">
-                    <div class="single-client text-center">   
-                        <a href="https://www.dad.polito.it/"> 
-						<img src="assets/images/client_logo_01.png">
-						</a>
-                    </div> 
-                </div>
-                <div class="col-lg-3">
-                    <div class="single-client text-center">    
-                        <a href="https://www.g4ch.polito.it/wordpress/"> 
-						<img src="assets/images/client_logo_02.png">
-						</a>
-                    </div> 
-                </div>
-                <div class="col-lg-3">
-                    <div class="single-client text-center">    
-                        <a href="https://www.cipaheritagedocumentation.org/"> 
-						<img src="assets/images/client_logo_03.png">
-						</a>
-                    </div> 
-                </div>
-                <div class="col-lg-3">
-				<div class="single-client text-center">   
-                        <a href="https://www.icomos.org/en"> 
-						<img src="assets/images/client_logo_04.png">
-						</a>
-                    </div> 
-                </div>
-                <div class="col-lg-3">
-                    <div class="single-client text-center">   
-                        <a href="https://www.dad.polito.it/"> 
-						<img src="assets/images/client_logo_05.png">
-						</a>
-                    </div> 
-                </div>
-                <div class="col-lg-3">
-                    <div class="single-client text-center">    
-                        <a href="https://www.g4ch.polito.it/wordpress/"> 
-						<img src="assets/images/client_logo_06.png">
-						</a>
-                    </div> 
-                </div>
-                <div class="col-lg-3">
-                    <div class="single-client text-center">    
-                        <a href="https://www.cipaheritagedocumentation.org/"> 
-						<img src="assets/images/client_logo_07.png">
-						</a>
-                    </div> 
-                </div>
-                <div class="col-lg-3">
-				<div class="single-client text-center">   
-                        <a href="https://www.icomos.org/en"> 
-						<img src="assets/images/client_logo_08.png">
-						</a>
-                    </div> 
-                </div>
-            </div> 
-        </div> 
-    </section>
-
-
-
-    <section id="contact" class="contact-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section-title text-center pb-20">
-                        <h3 class="title">Get in touch</h3>
-                    </div> 
-                </div>
-            </div> 
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="contact-two mt-50 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                        <h4 class="contact-title">Questions about ARK-BIM?</h4>
-                        <p style="text-align: justify"class="text">
-						ARK-BIM is a research project carried out by 
-						<a href="https://www.dad.polito.it/personale/scheda/(nominativo)/filippo.diara">Filippo Diara</a> 
-						of Politecnico di Torino, DAD department - 
-						<a href="https://www.g4ch.polito.it/">G4CH Lab</a>
-						. This work was inspired by the guidelines of the International Committee of Architectural Photogrammetry (CIPA), 
-						the scientific committee of ICOMOS, concerning Cultural Heritage documentation and preservation through the utilization 
-						of open source solutions for the correct data dissemination, idea also adopted by the GAMHer project (PRIN 2015-2020), 
-						who supported and shared this thought. 
-						</p>
-						&nbsp
-						<p style="text-align: justify"class="text">Feel free to contact us for further information or questions!</p>
-                        <ul class="contact-info">
-                            <li> 
-							<span style="color: #7baece"> <i class="far fa-envelope fa-lg"></i> </span>
-							arkbim.info@gmail.com
-							</li>
-                        </ul>
-                    </div> 			
-    </div>
-	&nbsp
-	&nbsp
-	&nbsp
-  <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/mgerlypo" method="post">
-  <fieldset id="fs-frm-inputs">
-    <label for="full-name">Name</label>
-    <input type="text" name="name" id="full-name" placeholder="Your full name" required="">
-    <label for="email-address">Email</label>
-    <input type="email" name="_replyto" id="email-address" placeholder="Your email address" required="">
-    <label for="message">Message</label>
-    <textarea rows="5" name="message" id="message" placeholder="Write here your message" required=""></textarea>
-    <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
-  </fieldset>
-  <input type="submit" value="Submit">
-</form>	
-            </div>
-            </div> 
-        </div> 
-    </section>
-
-
-    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
-
-
-
-    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/slick.min.js"></script>
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/scrolling-nav.js"></script>
-    <script src="assets/js/jquery.easing.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/main.js"></script>
-	<script src="assets/js/ajax-contact.js"></script>
-	<script src="fcf-assets/js/lang/fcf.en.js"></script>
-    <script src="fcf-assets/js/fcf.just-validate.min.js"></script>
-    <script src="fcf-assets/js/fcf.form.js"></script>
+.slider-1.round:before {
+  border-radius: 50%;
+}
 	
 
-</body>
+	
+	 
+	         #mySectionPlanesOverviewCanvas {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            bottom: 0px;
+            right: 220px;
+            z-index: 0;
+        }
+	 
+	 
+       .annotation-marker {
+            color: black;
+            text-align: center;
+            font-weight: bold;
+			font: Poppins;
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 15px;
+            border: 2px solid red;
+            background: black;
+            visibility: hidden;
+            box-shadow: 5px 5px 15px 1px #000000;
+            z-index: 0;
+        }
 
+        .annotation-label {
+            position: absolute;
+            max-width: 450px;
+            min-height: 50px;
+            padding: 8px;
+            padding-left: 12px;
+            padding-right: 12px;
+            background: #ffffff;
+            color: #000000;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 8px;
+            border: #ffffff solid 2px;
+            box-shadow: 5px 5px 15px 1px #000000;
+            z-index: 90000;
+        }
+
+        .annotation-label:after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 5px 8px 5px 0;
+            border-color: transparent white;
+            display: block;
+            width: 0;
+            z-index: 1;
+            margin-top: -11px;
+            left: -12px;
+            top: 20px;
+        }
+
+        .annotation-label:before {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 9px 13px 9px 0;
+            border-color: transparent #ffffff;
+            display: block;
+            width: 0;
+            z-index: 0;
+            margin-top: -12px;
+            left: -15px;
+            top: 20px;
+        }
+
+        .annotation-title {
+            font: normal 20px arial;
+            margin-bottom: 8px;
+        }
+
+        .annotation-desc {
+            font: normal 14px arial;
+        }
+		
+
+     </style>
+     </head>
+
+     <body>
+     <input type="checkbox" id="info-button"/>
+     <label for="info-button" class="info-button"><span style="color: white"><i class="fas fa-lg fa-bars white-50"></i></span></label>
+     <input type="checkbox" id="info-button-2"/>
+     <label for="info-button-2" class="info-button-2"><span style="color: white"><i class="fas fa-lg fa-toolbox white-50"></i></span></label>
+     <input type="checkbox" id="info-button-3"/>
+     <label for="info-button-3" class="info-button-3"><span style="color: white"><i class="fas fa-lg fa-layer-group white-50"></i></span></label>
+     <input type="checkbox" id="info-button-4"/>
+     <label for="info-button-4" class="info-button-4"><span style="color: white"><i class="fas fa-lg fa-cube white-50"></i></span></label>
+	 <input type="checkbox" id="info-button-6"/>
+     <label for="info-button-6" class="info-button-6"><span style="color: white"><i class="fas fa-lg fa-envelope white-50"></i></span></label>
+     <canvas id="myCanvas"></canvas>
+	 
+	 <canvas id="mySectionPlanesOverviewCanvas"></canvas>
+	 <div class="spinner-page"></div>
+     <canvas id="myNavCubeCanvas"></canvas>
+     <canvas id="myAxisGizmoCanvas"></canvas>
+     <div id="treeViewContainer">
+     <h1>ARK-BIM &nbsp Hotspot Model</h1>
+	 &nbsp
+	 &nbsp
+     </div>
+     <div id="xeokit-context-menu"></div>
+
+     <!-- info / settings -->
+
+     <div class="slideout-sidebar" id="btn-group">
+     <h1 style="color: #fff">ARK-BIM Info</h1>
+	 &nbsp
+     <button id="myBtn" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-info-circle fa-lg"> </i></span>
+	 &nbsp Info</button>
+	 &nbsp
+	 <button style="text-align: left" onclick="location.href='https://ark-bim.github.io/'">
+     <span style="color: #fff"> <i class="fas fa-globe-americas fa-lg"></i>
+	 </span> 
+	 &nbsp ARK-BIM website</button>
+	 &nbsp
+	 &nbsp
+	 &nbsp
+	 &nbsp
+	 
+     <button style="text-align: left">
+     <span style="color: #fff">
+	 </span> 
+	 &nbsp This model contains 3 Hotspot! </button>
+	 
+
+     </div>
+
+     <!-- toolbox -->
+
+     <div class="slideout-sidebar-2" id="btn-group">
+	 &nbsp
+     <h1 style="color: #fff">Toolbox</h1>
+	 &nbsp
+ 
+	 <button id="ortho" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-cube fa-lg"></i>
+	 </span> 
+	 &nbsp Orthographic </button>
+	
+	 <button  id="perspective" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-cube fa-lg"></i>
+	 </span> 
+	 &nbsp Perspective </button>
+	 
+	 <button  id="first" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-cube fa-lg"></i>
+	 </span> 
+	 &nbsp First person </button>
+	 
+	 	 &nbsp
+	 <button id="view" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-eye fa-lg"></i>
+	 </span> 
+	 &nbsp Reset view</button>
+	 
+	 &nbsp
+	 <button id="reload" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-sync-alt fa-lg"></i>
+	 </span> 
+	 &nbsp Reload Model</button>
+	 
+
+	
+     </div>
+
+
+     <!-- Isolate elements -->
+
+     <div class="slideout-sidebar-3" id="btn-group">
+	 &nbsp
+	 <h1 style="color: #fff">Isolate Elements</h1>
+	 &nbsp
+	
+	 <button id="beam" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Beams </button>
+	
+	 <button id="element" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Building Elements </button>
+	
+	 <button id="column" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Columns </button>
+	
+	 <button id="covering" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+     </span> 
+     &nbsp Coverings </button>
+	
+	 <button id="door" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Doors </button>
+	
+	 <button id="footing" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Footings </button>
+	
+	 <button id="furnishing" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Furnishing Elements </button>
+	
+	 <button id="member" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Member </button>
+	
+     <button id="roof" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Roofs </button>
+	
+     <button id="slab" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Slabs </button>
+	
+	 <button id="stair" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Stairs </button>
+	
+	 <button id="storey" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Storeys </button>
+	
+	 <button id="wall" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Walls </button>
+	
+	 <button id="standardcase" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Wall Standard Case </button>
+	
+     <button id="window" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Windows </button>
+	 
+	 <button id="chimney" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Chimney </button>
+	 
+	 <button id="reinforcing" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-search fa-lg"></i>
+	 </span> 
+     &nbsp Reinforcing Bar </button>
+	
+	 &nbsp
+	 <button id="reset" style="text-align: left">
+     <span style="color: #fff"> <i class="fas fa-trash fa-lg"></i>
+	 </span> 
+     &nbsp Reset View </button>
+     &nbsp
+	
+     </div>
+
+
+
+
+     <!-- Scene and Camera settings -->
+
+     <div class="slideout-sidebar-4" id="btn-group">
+	 &nbsp
+	 
+	 <h1 style="color: #fff">Scene and Camera Settings</h1>
+
+
+     <h2 style="color: #fff">Edges</h2>
+     <label class="switch">
+     <input id="toggle" type="checkbox" checked>
+     <span class="slider-1 round"></span>
+     </label>
+     <br/>
+	 
+	 <h2 style="color: #fff">Ambient Occlusion (SAO)</h2>
+     <label class="switch">
+     <input id="toggle_1" type="checkbox" checked>
+     <span class="slider-1 round"></span>
+     </label>
+     <br/>
+	 
+	 &nbsp
+     <div id="myDatGuiContainer"></div>
+
+     </div>
+	 
+	 
+	 <!-- Support -->
+
+     <div class="slideout-sidebar-6" id="btn-group">
+     <h1 style="text-align: left; font-family: poppins">Support Request</h1>
+	 &nbsp
+	 <p style="text-align: left; font-family: poppins">Please use this module to send a support request about ARK-BIM</p>		
+     <form id="form-1" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/mgerlypo" method="post">
+     <fieldset id="form-1-inputs">
+     <label for="full-name">Name</label>
+     <input type="text" name="name" id="full-name" placeholder="Your full name" required="">
+     <label for="email-address">Email</label>
+     <input type="email" name="_replyto" id="email-address" placeholder="Your email address" required="">
+	 <label for="full-name">Your job</label>
+     <input type="text" name="name" id="full-name" placeholder="Describe your job" required="">
+     <label for="message">Message</label>
+     <textarea rows="5" name="message" id="message" placeholder="Write here your message" required=""></textarea>
+     <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+     </fieldset>
+     <input type="submit" value="send request">
+     </form>	
+     </div>
+   
+
+
+
+     <!-- MODAL -->
+
+     <div id="myModal" class="modal">
+     <div class="modal-content">
+     <span class="close">&times;</span>
+	<h1> ARK-BIM Hotspot informative model</h1>
+	<h3> Info </h3>
+    <p>Through this simple tool you can investigate model information via numeric hotspots.</p>
+	<p>version 2.0 © Filippo Diara - based on XEOKIT</p>
+	<h3> How it works </h3>
+	<p>Click on hotspots number and find out model information.</p>
+	<h3> How to navigate the model</h3>
+	<p> Mouse Left click: 360° orbit /// Mouse Right click: Axis Pan /// Mouse Wheel: Zoom</p>
+  </div>
+
+
+
+     </body>
+
+     <script type="module">
+	 
+	 
+
+	 
+	//------------------------------------------------------------------------------------------------------------------
+    // Spinner page 
+    //------------------------------------------------------------------------------------------------------------------
+
+	    $(window).load(function() {
+		$(".spinner-page").fadeOut();;
+	    });
+
+	 
+    //------------------------------------------------------------------------------------------------------------------
+    // Libraries and scene setup
+    //------------------------------------------------------------------------------------------------------------------
+
+    import {utils, 
+	        Viewer, 
+			XKTLoaderPlugin, 
+			TreeViewPlugin,
+            ContextMenu,			
+			Mesh, 
+			buildGridGeometry, 
+			PhongMaterial, 
+			VBOGeometry, 
+			DistanceMeasurementsPlugin,
+            AngleMeasurementsPlugin,		
+			AmbientLight, 
+			DirLight, 
+			NavCubePlugin,
+			SectionPlanesPlugin, 
+			math,
+			AxisGizmoPlugin,
+			AnnotationsPlugin,
+			StoreyViewsPlugin,
+			CameraMemento,
+			} from "./dist/xeokit-sdk.es.js";
+
+    import {
+        XKTModel,
+        parseIFCIntoXKTModel,
+        writeXKTModelToArrayBuffer
+    } from "./dist/xeokit-xkt-utils.es.js";
+
+    import {signalTestComplete} from "./libs/utils.js";
+	
+
+    const viewer = new Viewer({
+        canvasId: "myCanvas",
+        transparent: true,
+		antialias: true,
+		pickable: true,
+		saoEnabled: true,
+		pickSurfacePrecisionEnabled: true,
+    });
+	
+	   if (!viewer.scene.sao.supported) {
+        document.getElementById("warningMessage").innerText = "SAO is not currently supported in this browser";
+    }
+	
+	const cameraControl = viewer.cameraControl;
+	const scene = viewer.scene;
+    const cameraFlight = viewer.cameraFlight;
+    const camera = scene.camera;
+	const sao = scene.sao;
+	
+	sao.enabled = true;
+	
+	const xktLoader = new XKTLoaderPlugin(viewer);
+    const xktModel = new XKTModel();
+	
+	
+
+    //------------------------------------------------------------------------------------------------------------------
+    // MODEL LOAD
+    //------------------------------------------------------------------------------------------------------------------
+
+    utils.loadArraybuffer("./assets/models/museo_x.ifc", async (data) => {
+
+        parseIFCIntoXKTModel({data, xktModel, wasmPath: "./"})
+            .then(() => {
+
+                xktModel.finalize();
+
+                const xktArrayBuffer = writeXKTModelToArrayBuffer(xktModel);
+
+                const model = xktLoader.load({
+                    id: "myModel",
+                    xkt: xktArrayBuffer,
+                    edges: true,
+                    saoEnabled: true,
+					excludeUnclassifiedObjects: false,
+					pickable: true,
+					backfaces: true
+                });
+			
+                model.on("loaded", () => {
+
+                    viewer.cameraFlight.jumpTo(model);
+                    signalTestComplete();
+					const cameraMemento = new CameraMemento();
+                    cameraMemento.saveCamera(viewer.scene);
+                });
+				
+            });
+			
+    });
+	
+	
+	//------------------------------------------------------------------------------------------------------------------
+    // Scene Visualization
+    //------------------------------------------------------------------------------------------------------------------
+
+    viewer.camera.eye = [-2.56, 8.38, 8.27];
+    viewer.camera.look = [13.44, 3.31, -14.83];
+    viewer.camera.up = [0.10, 0.98, -0.14];
+
+    viewer.scene.xrayMaterial.fill = true;
+    viewer.scene.xrayMaterial.fillAlpha = 0.1;
+    viewer.scene.xrayMaterial.fillColor = [0, 0, 0];
+    viewer.scene.xrayMaterial.edgeAlpha = 0.3;
+    viewer.scene.xrayMaterial.edgeColor = [0, 0, 0];
+
+    viewer.scene.highlightMaterial.fill = true;
+    viewer.scene.highlightMaterial.edges = true;
+    viewer.scene.highlightMaterial.fillAlpha = 0.1;
+    viewer.scene.highlightMaterial.edgeAlpha = 0.1;
+    viewer.scene.highlightMaterial.edgeColor = [1, 1, 0];
+
+    viewer.scene.selectedMaterial.fill = true;
+    viewer.scene.selectedMaterial.edges = true;
+    viewer.scene.selectedMaterial.fillAlpha = 0.5;
+    viewer.scene.selectedMaterial.edgeAlpha = 0.6;
+    viewer.scene.selectedMaterial.edgeColor = [0, 1, 1];
+	
+    viewer.cameraControl.followPointer = true;
+	
+
+	
+    //------------------------------------------------------------------------------------------------------------------
+    // NAV CUBE
+    //------------------------------------------------------------------------------------------------------------------
+
+		new NavCubePlugin(viewer, {
+        canvasId: "myNavCubeCanvas",
+		visible: true,           // Initially visible (default)
+        cameraFly: true,       // Fly camera to each selected axis/diagonal
+        cameraFitFOV: 45,        // How much field-of-view the scene takes once camera has fitted it to view
+        cameraFlyDuration: 0.5, // How long (in seconds) camera takes to fly to each new axis/diagonal
+        color: "#888888",      // Default value
+        frontColor: "#888888",
+        backColor: "#888888",
+        leftColor: "#888888",
+        rightColor: "#888888",
+        topColor: "#888888",
+        bottomColor: "#888888",
+        hoverColor: "#929292",
+    });
+	
+	
+	//------------------------------------------------------------------------------------------------------------------
+    // Reload
+    //------------------------------------------------------------------------------------------------------------------
+	
+	 document.getElementById("reload").onclick = function () {
+     location.reload();         
+     }
+	 
+	//------------------------------------------------------------------------------------------------------------------
+    // Reset view
+    //------------------------------------------------------------------------------------------------------------------
+	 
+	 document.getElementById("view").onclick = function () {
+     viewer.cameraFlight.flyTo({ projection: 'perspective', duration: 1.0  });  
+    
+     }
+	 
+	//------------------------------------------------------------------------------------------------------------------
+    // Ortho - perspective first person
+    //------------------------------------------------------------------------------------------------------------------
+	 
+	 document.getElementById("ortho").onclick = function () {
+     viewer.cameraFlight.flyTo({ projection: 'ortho', duration: 0.8  });  
+     cameraControl.navMode = "orbit";
+     cameraControl.followPointer = true;	 
+     }
+	 
+	 document.getElementById("perspective").onclick = function () {
+     viewer.cameraFlight.flyTo({ projection: 'perspective', duration: 0.8  }); 
+     cameraControl.navMode = "orbit";
+     cameraControl.followPointer = true;	 
+     }
+	 
+	 document.getElementById("first").onclick = function () {
+     cameraControl.navMode = "firstPerson";
+     cameraControl.followPointer = true;     
+     }
+	 
+	
+	 
+    //------------------------------------------------------------------------------------------------------------------
+    // X-Y-Z AXIS
+    //------------------------------------------------------------------------------------------------------------------
+	
+	    new AxisGizmoPlugin(viewer, {
+        canvasId: "myAxisGizmoCanvas"
+    });
+	
+	//------------------------------------------------------------------------------------------------------------------
+    // Ambient light
+    //------------------------------------------------------------------------------------------------------------------
+	
+	viewer.scene.clearLights();
+
+     new AmbientLight(viewer.scene, {
+     color: [0.8, 0.8, 0.8],
+     intensity: 1.5
+     });
+
+     new DirLight(viewer.scene, {
+     id: "keyLight",
+     dir: [0.8, -0.6, -0.8],
+     color: [-0.3, -0.3, -0.3],
+     intensity: 1.4,
+     space: "view"
+     });
+
+     new DirLight(viewer.scene, {
+     id: "fillLight",
+     dir: [-0.8, -0.4, -0.4],
+     color: [-0.3, -0.3, -0.3],
+     intensity: 0.2,
+     space: "view"
+     });
+
+     new DirLight(viewer.scene, {
+     id: "rimLight",
+     dir: [0.2, -0.8, 0.8],
+     color: [-0.6, -0.6, -0.6],
+     intensity: 1,
+     space: "view"
+     });
+	 
+	
+	
+	//----------------------------------------------------------------------------------------------------------------------
+    // Tree
+    //----------------------------------------------------------------------------------------------------------------------
+
+    const treeView = new TreeViewPlugin(viewer, {
+        containerElement: document.getElementById("treeViewContainer"),
+        autoExpandDepth: 1, // Initially expand tree three storeys deep
+        hierarchy: "types", 
+		sortNodes: true,
+    });
+	
+
+	
+
+	
+	//------------------------------------------------------------------------------------------------------------------
+    // Pick entities and colorize them
+    //------------------------------------------------------------------------------------------------------------------
+
+    var lastEntity = null;
+    var lastColorize = null;
+
+    viewer.cameraControl.on("picked", (pickResult) => {
+
+        console.log(pickResult.entity.id);
+
+        if (!lastEntity || pickResult.entity.id !== lastEntity.id) {
+            if (lastEntity) {
+                lastEntity.colorize = lastColorize;
+            }
+
+            lastEntity = pickResult.entity;
+            lastColorize = pickResult.entity.colorize.slice();
+
+            pickResult.entity.highlighted = false;
+            pickResult.entity.colorize = [0.0, 0.6, 0.4,];
+        }
+    });
+
+    viewer.cameraControl.on("pickedNothing", () => {
+        if (lastEntity) {
+            lastEntity.colorize = lastColorize;
+            lastEntity = null;
+        }
+    });
+	
+	//------------------------------------------------------------------------------------------------------------------
+    // INFO MODAL
+    //------------------------------------------------------------------------------------------------------------------
+	
+     var modal = document.getElementById("myModal");
+     var btn = document.getElementById("myBtn");
+     var span = document.getElementsByClassName("close")[0];
+     btn.onclick = function() {
+     modal.style.display = "block";
+     }
+
+     span.onclick = function() {
+     modal.style.display = "none";
+     }
+
+     window.onclick = function(event) {
+     if (event.target == modal) {
+     modal.style.display = "none";
+     }
+     }
+	 
+	 //------------------------------------------------------------------------------------------------------------------
+    // Dat.GUI MENU
+    //------------------------------------------------------------------------------------------------------------------
+
+     const cameraControlParams = new function () {
+
+        this.active = cameraControl.active;                    
+        this.followPointer = cameraControl.followPointer;
+        this.doublePickFlyTo = cameraControl.doublePickFlyTo;
+        this.panRightClick = cameraControl.panRightClick;
+     }();
+	
+	   const saoParams = new function () {
+
+        this.kernelRadius = sao.kernelRadius;
+        this.intensity = sao.intensity;
+        this.bias = sao.bias;
+        this.scale = sao.scale;
+        this.minResolution = sao.minResolution;
+        this.numSamples = sao.numSamples;
+        this.blendFactor = sao.blendFactor;
+        this.blendCutoff = sao.blendCutoff;
+        this.blur = sao.blur;
+        this.far = camera.perspective.far;
+        this.fov = camera.perspective.fov;
+     }();
+	
+
+     const update = () => {
+	 
+
+        sao.kernelRadius = saoParams.kernelRadius;
+        sao.intensity = saoParams.intensity;
+        sao.bias = saoParams.bias;
+        sao.scale = saoParams.scale;
+        sao.minResolution = saoParams.minResolution;
+        sao.numSamples = saoParams.numSamples;
+        sao.blendFactor = saoParams.blendFactor;
+        sao.blendCutoff = saoParams.blendCutoff;
+        sao.blur = saoParams.blur;
+		
+		cameraControl.active = cameraControlParams.active;
+        cameraControl.followPointer = cameraControlParams.followPointer;
+        cameraControl.doublePickFlyTo = cameraControlParams.doublePickFlyTo;
+        cameraControl.panRightClick = cameraControlParams.panRightClick;
+
+        requestAnimationFrame(update);
+     };
+
+     update();
+
+     const gui = new dat.GUI({autoPlace: false, width: "100%"});
+	
+	 const saoFolder = gui.addFolder('Ambient Occlusion - SAO');
+
+     saoFolder.add(saoParams, 'bias', -2, 2);
+     saoFolder.add(saoParams, 'intensity', 0, 1.0);
+     saoFolder.add(saoParams, 'scale', .05, 5);
+     saoFolder.add(saoParams, 'kernelRadius', 1, 200);
+     saoFolder.add(saoParams, 'minResolution', 0, 0.001);
+     saoFolder.add(saoParams, 'numSamples', 4, 100);
+     saoFolder.add(saoParams, 'blendFactor', 0, 2);
+     saoFolder.add(saoParams, 'blendCutoff', 0, 2);
+     saoFolder.add(saoParams, 'blur');
+     saoFolder.open();
+	
+	
+
+     const cameraControlFolder = gui.addFolder('Camera Control');
+     cameraControlFolder.add(cameraControlParams, 'active');
+     cameraControlFolder.add(cameraControlParams, 'followPointer');
+     cameraControlFolder.add(cameraControlParams, 'doublePickFlyTo');
+     cameraControlFolder.add(cameraControlParams, 'panRightClick');
+     cameraControlFolder.open();
+	 
+     const customContainer = document.getElementById('myDatGuiContainer');
+     customContainer.appendChild(gui.domElement);
+	
+	 //------------------------------------------------------------------------------------------------------------------
+    // Isolate element
+    //------------------------------------------------------------------------------------------------------------------
+	
+	
+	 
+	 document.getElementById("wall").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcWall"), false);            
+     }
+
+     document.getElementById("window").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcWindow"), false);            
+     }
+
+     document.getElementById("column").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcColumn"), false);             
+     }
+
+     document.getElementById("storey").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcBuildingStorey"), false);            
+     }
+
+     document.getElementById("beam").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcBeam"), false);            
+     }
+
+     document.getElementById("covering").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcCovering"), false);            
+     }
+
+     document.getElementById("door").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcDoor"), false);            
+     }
+
+     document.getElementById("footing").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcFooting"), false);            
+     }
+
+     document.getElementById("furnishing").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcFurnishingElement"), false);            
+     }
+	 
+	 document.getElementById("roof").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcRoof"), false);            
+     }
+	 
+	 document.getElementById("stair").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcStair"), false);     
+     }
+	 
+	 document.getElementById("slab").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcSlab"), false);     
+     }
+	 
+	 document.getElementById("element").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcBuildingElement"), false);     
+     }
+	 
+	 document.getElementById("standardcase").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcWallStandardCase"), false);     
+     }
+	 
+	 document.getElementById("member").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcMember"), false);     
+     }
+	 
+	 document.getElementById("chimney").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcChimney"), false);     
+     }
+	 
+	 document.getElementById("reinforcing").onclick = function () {
+     scene.setObjectsVisible(scene.objectIds, true);
+     scene.setObjectsXRayed(scene.objectIds, true);
+     scene.setObjectsXRayed(viewer.metaScene.getObjectIDsByType("IfcReinforcingBar"), false);     
+     }
+	 
+     document.getElementById("reset").onclick = function () {
+     scene.setObjectsXRayed(scene.objectIds, false);
+     }
+	 
+	 
+	 //------------------------------------------------------------------------------------------------------------------
+    // Annotations
+    //------------------------------------------------------------------------------------------------------------------
+	 
+	 
+	 	 	 const annotations = new AnnotationsPlugin(viewer, {
+
+         markerHTML: "<div class='annotation-marker' style='background-color: {{markerBGColor}};'>{{glyph}}</div>",
+         labelHTML: "<div class='annotation-label' style='background-color: {{labelBGColor}};'><div class='annotation-title'>{{title}}</div><div class='annotation-desc'>{{description}}</div></div>",
+
+         values: {
+            markerBGColor: "red",
+            glyph: "X",
+            title: "Untitled",
+            description: "No description"
+         },
+
+         surfaceOffset: 0.1
+         });
+
+    var prevAnnotationClicked = null;
+
+    annotations.on("markerClicked", (annotation) => {
+        annotation.setLabelShown(!annotation.getLabelShown());
+    }) 
+
+			annotations.createAnnotation({
+
+            id: "myAnnotation1",
+
+
+            worldPos: [209.916, 28.8096, -806.91],
+            occludable: true,
+            markerShown: true,
+            labelShown: false,
+			
+			labelHTML: "<div class='annotation-label' style='background-color: {{labelBGColor}};'>\
+            <div class='annotation-title'>{{title}}</div>\
+            <div class='annotation-desc'>{{description}}</div>\
+                </div>",
+
+             values: {
+                glyph: "1",
+                title: "Giacomo Boni Museum",
+                description: "The still preserved remains are related to a series of structures  that began to be installed (from the end of II century A.D.) on the pavement of the Via Sacra leaning against the pillars of the long Porch of perhaps Nero's age (so-called Porticus Neroniana). This series of eight rooms of the II-IV century A.D. has been interpreted in literature as generic tabernae  or stationes exterarum civitatum. This last hypothesis is associated with the names of eastern Mediterranean cities on Greek inscriptions found nearby: the equivalent of medieval warehouses, set up for commercial purposes and / or for carrying out ritual activities.",
+                markerBGColor: "white"
+            }
+		
+			
+        });
+
+	
+	    annotations.createAnnotation({
+
+            id: "myAnnotation2",
+
+
+            worldPos: [211.835, 28.2929, -804.275],
+
+            occludable: true,
+            markerShown: true,
+            labelShown: false,
+			
+			labelHTML: "<div class='annotation-label' style='background-color: {{labelBGColor}};'>\
+                <div class='annotation-title'>{{title}}</div>\
+                <br><img alt='myImage' width='350' height='300' src='{{imageSrc}}'>\
+                </div>",
+
+            values: {
+                glyph: "2",
+                title: "Marble reuse element",
+                markerBGColor: "white",
+				imageSrc: "./assets/R1.png"
+				 }
+             });
+			
+			
+			annotations.createAnnotation({
+
+            id: "myAnnotation3",
+
+
+            worldPos: [206.238, 27.1607, -798.299],
+
+            occludable: true,
+            markerShown: true,
+            labelShown: false,
+			
+			labelHTML: "<div class='annotation-label' style='background-color: {{labelBGColor}};'>\
+                <div class='annotation-title'>{{title}}</div>\
+                <br><img alt='myImage' width='400' height='500' src='{{imageSrc}}'>\
+                </div>",
+
+            values: {
+                glyph: "3",
+                title: "South Internal Wall with the alcove",
+                markerBGColor: "white",
+				imageSrc: "./assets/q1.jpg"
+            }
+		
+			
+        });
+	
+
+
+     window.viewer = viewer;
+
+</script>
 </html>
